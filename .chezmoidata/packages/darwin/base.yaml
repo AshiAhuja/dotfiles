@@ -7,6 +7,9 @@ brews:
   - cloud-sql-proxy
   - sinelaw/fresh/fresh-editor
   - starship
+  - zsh-autosuggestions
+  - zsh-syntax-highlighting
+  - rust
 
 casks:
   - pycharm
@@ -15,3 +18,5 @@ casks:
   - visual-studio-code
   - docker-desktop
   - postman
+  - font-symbols-only-nerd-font
+  - font-jetbrains-mono-nerd-font
