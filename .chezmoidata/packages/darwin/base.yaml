@@ -4,7 +4,6 @@ brews:
   - atuin
   - age
   - uv
-  - cloud-sql-proxy
   - sinelaw/fresh/fresh-editor
   - starship
   - zsh-autosuggestions
@@ -13,10 +12,10 @@ brews:
   - zoxide
   - commitizen
   - pre-commit
+  - ghq
 
 casks:
   - pycharm
-  - whatsapp
   - iterm2
   - visual-studio-code
   - docker-desktop

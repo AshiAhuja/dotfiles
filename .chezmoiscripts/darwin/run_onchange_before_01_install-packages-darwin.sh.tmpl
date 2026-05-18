@@ -13,18 +13,21 @@ cat << "EOF"
  |_|  |_|\__,_|\___|\____/|_____/
 EOF
 
-echo "Installing Homebrew packages"
+echo "Installing Homebrew packages for profile: {{ .profile }}"
 
 # Load base packages
 {{ $base := include ".chezmoidata/packages/darwin/base.yaml" | fromYaml }}
 
-{{ $brews := $base.brews }}
-{{ $casks := $base.casks }}
+# Load profile-specific packages
+{{ $profile := include (printf ".chezmoidata/packages/darwin/%s.yaml" .profile) | fromYaml }}
 
-# Install brews
+# Merge base + profile
+{{ $brews := concat $base.brews $profile.brews | uniq }}
+{{ $casks := concat $base.casks $profile.casks | uniq }}
+
 if command -v brew >/dev/null 2>&1; then
-  HOMEBREW_NO_AUTO_UPDATE=1 brew install {{ range $brews }}{{.}} {{ end }}
-  HOMEBREW_NO_AUTO_UPDATE=1 brew install --cask {{ range $casks }}{{.}} {{ end }}
+  brew install {{ range $brews }}{{.}} {{ end }}
+  brew install --cask {{ range $casks }}{{.}} {{ end }}
 else
   echo "Homebrew not found. Installing..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"

@@ -1,1 +1,11 @@
 key.txt.age
+
+{{- if ne .profile "personal" }}
+.ssh/id_ed25519
+.ssh/id_ed25519.pub
+{{- end }}
+
+{{- if ne .profile "work" }}
+.ssh/id_ed25519_loblaw
+.ssh/id_ed25519_loblaw.pub
+{{- end }}
