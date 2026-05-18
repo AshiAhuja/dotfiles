@@ -27,7 +27,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
 
-{{ if eq .profile "personal" }}
 eval "$(zoxide init --cmd cd zsh)"
-{{ end }}
 
