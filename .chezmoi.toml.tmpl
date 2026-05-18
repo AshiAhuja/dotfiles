@@ -1,0 +1,10 @@
+{{- /* Ask Profile Choices */ -}}
+{{- $profile_choices := list "personal" "work" -}}
+{{- $profile := promptChoiceOnce . "profile" "Select the Profile: " $profile_choices "personal" -}}
+
+encryption = "age"
+[age]
+    identity = "~/.config/chezmoi/key.txt"
+    recipient = "age15yuwmxvdhqxwxcxjuxc7ygqc0y4xqpuacnukpqnlvsm7cxhxl5qsqwfcrd"
+[data]
+    profile = {{ $profile | quote }}
