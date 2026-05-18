@@ -3,9 +3,15 @@ brews:
   - python
   - atuin
   - age
+  - uv
+  - cloud-sql-proxy
+  - sinelaw/fresh/fresh-editor
+  - starship
 
 casks:
   - pycharm
   - whatsapp
   - iterm2
   - visual-studio-code
+  - docker-desktop
+  - postman
