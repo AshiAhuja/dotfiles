@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+export PATH="$HOME/.local/bin/:$PATH"
+bindir="$HOME/.local/bin/"
+mkdir -p "$bindir"
+
+{{ if eq .chezmoi.os "darwin" }}
+cat << "EOF"
+  __  __             ____  _____
+ |  \/  |           / __ \/ ____|
+ | \  / | __ _  ___| |  | | (___
+ | |\/| |/ _` |/ __| |  | |\___ \
+ | |  | | (_| | (__| |__| |____) |
+ |_|  |_|\__,_|\___|\____/|_____/
+EOF
+
+echo "Installing Homebrew packages"
+
+# Load base packages
+{{ $base := include ".chezmoidata/packages/darwin/base.yaml" | fromYaml }}
+
+{{ $brews := $base.brews }}
+{{ $casks := $base.casks }}
+
+# Install brews
+if command -v brew >/dev/null 2>&1; then
+  HOMEBREW_NO_AUTO_UPDATE=1 brew install {{ range $brews }}{{.}} {{ end }}
+  HOMEBREW_NO_AUTO_UPDATE=1 brew install --cask {{ range $casks }}{{.}} {{ end }}
+else
+  echo "Homebrew not found. Installing..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  brew install {{ range $brews }}{{.}} {{ end }}
+  brew install --cask {{ range $casks }}{{.}} {{ end }}
+fi
+
+{{ end }}

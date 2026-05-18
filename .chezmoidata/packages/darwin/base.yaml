@@ -1,0 +1,11 @@
+brews:
+  - git
+  - python
+  - atuin
+  - age
+
+casks:
+  - pycharm
+  - whatsapp
+  - iterm2
+  - visual-studio-code
