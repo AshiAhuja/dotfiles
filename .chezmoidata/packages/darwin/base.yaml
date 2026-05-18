@@ -10,6 +10,9 @@ brews:
   - zsh-autosuggestions
   - zsh-syntax-highlighting
   - rust
+  - zoxide
+  - commitizen
+  - pre-commit
 
 casks:
   - pycharm
