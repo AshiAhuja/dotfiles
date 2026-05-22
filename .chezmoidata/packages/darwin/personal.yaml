@@ -1,4 +1,5 @@
-brews: []
+brews:
+  - node
 casks:
   - whatsapp
   - claude-code
