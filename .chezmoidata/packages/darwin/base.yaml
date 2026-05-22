@@ -13,6 +13,7 @@ brews:
   - commitizen
   - pre-commit
   - ghq
+  - ruff
 
 casks:
   - pycharm
