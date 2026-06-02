@@ -1,3 +1,4 @@
 brews:
   - cloud-sql-proxy
-casks: []
+casks:
+  - cursor
