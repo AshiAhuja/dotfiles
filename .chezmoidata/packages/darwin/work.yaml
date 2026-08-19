@@ -1,4 +1,5 @@
 brews:
   - cloud-sql-proxy
+  - glab
 casks:
   - cursor
