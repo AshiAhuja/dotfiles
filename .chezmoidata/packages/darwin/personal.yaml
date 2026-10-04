@@ -3,3 +3,5 @@ brews:
 casks:
   - whatsapp
   - claude-code
+  - chatgpt
+  - spotify
